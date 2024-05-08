@@ -1,0 +1,86 @@
+@import 'base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+
+.ProseMirror {
+  background-color: white;
+  color: black;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+/* Basic editor styles */
+.tiptap {
+  > * + * {
+    margin-top: 0.75em;
+  }
+}
+
+/* Placeholder (at the top) */
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Give a remote user a caret */
+.collaboration-cursor__caret {
+  border-left: 1px solid #0d0d0d;
+  border-right: 1px solid #0d0d0d;
+  margin-left: -1px;
+  margin-right: -1px;
+  pointer-events: none;
+  position: relative;
+  word-break: normal;
+}
+
+/* Render the username above the caret */
+.collaboration-cursor__label {
+  border-radius: 3px 3px 3px 0;
+  color: #0d0d0d;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  left: -1px;
+  line-height: normal;
+  padding: 0.1rem 0.3rem;
+  position: absolute;
+  top: -1.4em;
+  user-select: none;
+  white-space: nowrap;
+}
